@@ -13,6 +13,9 @@
         font-family: sans-serif;
         font-size: 1.5em;
       }
+      h1,h2,h3,h4,h5,h6 {
+        
+      }
       .wrapper {
         max-width: 1100px;
         width: 90%;
@@ -72,8 +75,10 @@
 <div class='wrapper'>
   <!-- app -->
 <div style="margin-top: 100px;" id='app'>
-  <h1 v-text="message"></h1>
-  <h2 v-html="message2"></h2>
+  <h1 v-text="text"></h1>
+  <h2 v-html="html"></h2>
+  <h3 v-show="show">v-show = true</h3>
+  <h4 v-if="viewed">v-if = true</h4>
 </div><!-- /app -->
 </div>
 
@@ -83,8 +88,10 @@
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'v-text',
-    message2: '<i>v-html</i>'
+    text: 'v-text',
+    html: '<i>v-html</i>',
+    show: true,
+    viewed: true
   }
 })
 </script>
