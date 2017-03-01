@@ -91,8 +91,8 @@
 </div><!-- /app -->
 
 <!-- *********** APP 2 ***********  -->
-<div style="margin-top: 50px;" id='app'>
-  <h1>{{message}}</h1>
+<div style="margin-top: 50px;" id='app2'>
+  <h1 v-bind:title="title">{{title}}</h1>
 </div><!-- /app2 -->
 
 
@@ -114,7 +114,8 @@ var app = new Vue({
 var app2 = new Vue({
   el: '#app2',
   data: {
-    message: 'hello world!'
+    message: 'hello world!',
+    title: 'title loaded on ' + new Date()
   }
 })
 </script>
