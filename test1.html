@@ -16,6 +16,9 @@
       h1,h2,h3,h4,h5,h6,p {
         font-size: 1.5em;
       }
+      img {
+        margin: 10px 0;
+      }
       .wrapper {
         max-width: 1100px;
         width: 90%;
@@ -93,6 +96,7 @@
 <!-- *********** APP 2 ***********  -->
 <div style="margin-top: 50px;" id='app2'>
   <h1 v-bind:title="title">{{title}}</h1>
+  <img v-bind:src='url' v-bind:alt='message' />
 </div><!-- /app2 -->
 
 
@@ -115,7 +119,8 @@ var app2 = new Vue({
   el: '#app2',
   data: {
     message: 'hello world!',
-    title: 'title loaded on ' + new Date()
+    title: 'title loaded on ' + new Date(),
+    url: 'http://placehold.it/50'
   }
 })
 </script>
