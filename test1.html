@@ -32,6 +32,11 @@
       .tm-grid {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+      }
+      .middle {
+        display: flex;
+        align-items: center;
       }
       ul {
         display: flex;
@@ -59,12 +64,18 @@
     <header class="tm-header">
       <div class='wrapper'>
         <div class='tm-grid'>
-          <div class='logo'>logo</div>
+          
+          <div id="app-logo" class="middle">
+            <img :src='logoUrl' :alt='seoAlt' />
+            <h1>logo</h1>
+          </div><!-- /app-logo -->
+
           <nav id="app-nav">
             <ul v-for>
               <li v-for="nav in navs">{{nav.link}}</li>
             </ul>
           </nav><!-- /app-nav -->
+
         </div><!-- /tm-grid -->
       </div><!-- /wrapper -->
     </header>
@@ -139,6 +150,15 @@ var appNav = new Vue ({
     ]
   }
 })
+
+var appLogo = new Vue ({
+  el: '#app-logo',
+  data: {
+    seoAlt: 'the best brand ever for free',
+    logoUrl: 'http://placehold.it/20'
+  }
+})
+
 </script>
 </body>
 </html>
