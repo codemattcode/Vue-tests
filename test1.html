@@ -70,7 +70,9 @@
     <!-- ******************************************* -->
 
 <div class='wrapper'>
-<div style="margin-top: 100px;" id='app'>{{message}}</div><!-- /app -->
+<div style="margin-top: 100px;" id='app'>
+  <h1 v-text="message"></h1>
+</div><!-- /app -->
 </div>
 
 <script src="https://unpkg.com/vue@2.2.1"></script>
@@ -79,7 +81,7 @@
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'The content goes here'
+    message: 'V text'
   }
 })
 </script>
