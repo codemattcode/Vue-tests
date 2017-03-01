@@ -60,13 +60,9 @@
       <div class='wrapper'>
         <div class='tm-grid'>
           <div class='logo'>logo</div>
-          <nav>
-            <ul>
-              <li>Home</li>
-              <li>Services</li>
-              <li>About</li>
-              <li>Portolio</li>
-              <li>Contact</li>
+          <nav id="navApp">
+            <ul v-for>
+              <li v-for="nav in navs">{{nav.link}}</li>
             </ul>
           </nav>
         </div><!-- /tm-grid -->
@@ -80,8 +76,7 @@
       </div>
     </section>
 
-    <!-- ******************************************* -->
-    <!-- ******************************************* -->
+
 
 <div class='wrapper'>
   <!-- app -->
@@ -101,9 +96,6 @@
   <h1 v-bind:title="title">{{title}}</h1>
   <!-- 'v-bind' can be represented by ':' -->
   <img :src='url' :alt='message' />
-  <ul class="normal" v-for>
-    <li v-for="todo in todos">{{todo.id}} {{todo.text}}</li>
-  </ul>
 </div><!-- /app2 -->
 
 
@@ -128,10 +120,18 @@ var app2 = new Vue({
     message: 'hello world!',
     title: 'title loaded on ' + new Date(),
     url: 'http://placehold.it/50',
-    todos: [
-      { text: 'get milk', id: 1},
-      { text: 'walk the dog', id: 2},
-      { text: 'buy a rainbow', id: 3}
+  }
+})
+
+var navApp = new Vue ({
+  el: '#navApp',
+  data: {
+    navs: [
+      {link: 'Home'},
+      {link: 'Sevices'},
+      {link: 'About'},
+      {link: 'Portfolio'},
+      {link: 'Contact'}
     ]
   }
 })
