@@ -60,11 +60,11 @@
       <div class='wrapper'>
         <div class='tm-grid'>
           <div class='logo'>logo</div>
-          <nav id="navApp">
+          <nav id="app-nav">
             <ul v-for>
               <li v-for="nav in navs">{{nav.link}}</li>
             </ul>
-          </nav>
+          </nav><!-- /app-nav -->
         </div><!-- /tm-grid -->
       </div><!-- /wrapper -->
     </header>
@@ -96,6 +96,9 @@
   <h1 v-bind:title="title">{{title}}</h1>
   <!-- 'v-bind' can be represented by ':' -->
   <img :src='url' :alt='message' />
+  <ul class='normal'>
+    <li v-for="count in count">count = {{count}}</li>
+  </ul>
 </div><!-- /app2 -->
 
 
@@ -120,11 +123,12 @@ var app2 = new Vue({
     message: 'hello world!',
     title: 'title loaded on ' + new Date(),
     url: 'http://placehold.it/50',
+    list: [], count: 10
   }
 })
 
-var navApp = new Vue ({
-  el: '#navApp',
+var appNav = new Vue ({
+  el: '#app-nav',
   data: {
     navs: [
       {link: 'Home'},
