@@ -38,6 +38,9 @@
         justify-content: space-between;
         list-style-type: none;
       }
+      ul.normal {
+        display: block;
+      }
       li {
         margin-right: 10px;
       }
@@ -96,7 +99,11 @@
 <!-- *********** APP 2 ***********  -->
 <div style="margin-top: 50px;" id='app2'>
   <h1 v-bind:title="title">{{title}}</h1>
-  <img v-bind:src='url' v-bind:alt='message' />
+  <!-- 'v-bind' can be represented by ':' -->
+  <img :src='url' :alt='message' />
+  <ul class="normal" v-for>
+    <li v-for="todo in todos">{{todo.id}} {{todo.text}}</li>
+  </ul>
 </div><!-- /app2 -->
 
 
@@ -120,7 +127,12 @@ var app2 = new Vue({
   data: {
     message: 'hello world!',
     title: 'title loaded on ' + new Date(),
-    url: 'http://placehold.it/50'
+    url: 'http://placehold.it/50',
+    todos: [
+      { text: 'get milk', id: 1},
+      { text: 'walk the dog', id: 2},
+      { text: 'buy a rainbow', id: 3}
+    ]
   }
 })
 </script>
