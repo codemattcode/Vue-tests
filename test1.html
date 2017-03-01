@@ -78,7 +78,9 @@
   <h1 v-text="text"></h1>
   <h2 v-html="html"></h2>
   <h3 v-show="show">v-show = true</h3>
-  <h4 v-if="vif">v-if = true</h4>
+  <h4 v-if="1 == 2">v-if</h4>
+  <h4 v-else>v-else (displays when 'v-if' is false)</h4>
+  <h5 v-pre>{{v-pre}}</h5>
 </div><!-- /app -->
 </div>
 
@@ -90,8 +92,7 @@ var app = new Vue({
   data: {
     text: 'v-text',
     html: '<i>v-html</i>',
-    show: true,
-    vif: true
+    show: true
   }
 })
 </script>
