@@ -79,7 +79,7 @@
 
 <div class='wrapper'>
   <!-- app -->
-<div style="margin-top: 100px;" id='app'>
+<div style="margin-top: 50px;" id='app'>
   <h1 v-text="text"></h1>
   <h2 v-html="html"></h2>
   <h3 v-show="show">v-show = true</h3>
@@ -89,7 +89,11 @@
   <h6 v-once>{{once}}</h6>
   <p v-cloak>{{cloak}}</p>
 </div><!-- /app -->
-</div>
+
+<div style="margin-top: 50px;" id='app'>
+  <h1>{{message}}</h1>
+</div><!-- /app2 -->
+</div><!-- /wrapper -->
 
 <script src="https://unpkg.com/vue@2.2.1"></script>
 
@@ -102,6 +106,12 @@ var app = new Vue({
     show: true,
     once: 'v-once',
     cloak: 'v-cloak'
+  }
+})
+var app2 = new Vue({
+  el: '#app2',
+  data: {
+    message: 'hello world!'
   }
 })
 </script>
