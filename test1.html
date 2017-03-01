@@ -72,6 +72,7 @@
 <div class='wrapper'>
 <div style="margin-top: 100px;" id='app'>
   <h1 v-text="message"></h1>
+  <h2 v-html="message2"></h2>
 </div><!-- /app -->
 </div>
 
@@ -81,7 +82,8 @@
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'V text'
+    message: 'v-text',
+    message2: '<i>v-html</i>'
   }
 })
 </script>
