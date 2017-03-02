@@ -52,6 +52,10 @@
       li:last-child {
         margin-right: 0;
       }
+      input {
+        padding: 10px;
+        font-size: 1.5em;
+      }
       /* [] = anything with v-cloak value */
       /* v-cloak works until page renders */
       [v-cloak] {
@@ -64,7 +68,7 @@
     <header class="tm-header">
       <div class='wrapper'>
         <div class='tm-grid'>
-          
+
           <div id="app-logo" class="middle">
             <img :src='logoUrl' :alt='seoAlt' />
             <h1>logo</h1>
@@ -80,10 +84,11 @@
       </div><!-- /wrapper -->
     </header>
 
-
+<!-- *******  two way data binding ******* -->
     <section>
-      <div class='wrapper'>
-        this is a section
+      <div class='wrapper' id="two-way">
+        <h3>{{output}}</h3>
+        <input type='text' v-model="output" />
       </div>
     </section>
 
@@ -118,6 +123,16 @@
 <script src="https://unpkg.com/vue@2.2.1"></script>
 
 <script>
+
+var twoWay = new Vue({
+  el: '#two-way',
+  data: {
+    output: 'Two Way Binding',
+  }
+})
+
+
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -146,7 +161,8 @@ var appNav = new Vue ({
       {link: 'Sevices'},
       {link: 'About'},
       {link: 'Portfolio'},
-      {link: 'Contact'}
+      {link: 'Contact'},
+      {link: 'Blog'}
     ]
   }
 })
