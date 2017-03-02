@@ -60,6 +60,7 @@
         border-radius: 6px;
         background-color: red;
         border: none;
+        outline: none;
         color: #eee;
       }
       /* [] = anything with v-cloak value */
@@ -99,8 +100,9 @@
 <section style="margin-top: 50px;">
   <div class='wrapper' id="counter">
     <h1 class="num-count">{{count}}</h1>
-    <button v-on:click="countUp">Count Up</button>
-    <button v-on:click="countDown">Count Down</button>
+    <!-- '@' shorthands 'v-on:' -->
+    <button @click="countUp">Count Up</button>
+    <button @click="countDown">Count Down</button>
   </div>
 </section>
 <!-- *******  two way data binding ******* -->
