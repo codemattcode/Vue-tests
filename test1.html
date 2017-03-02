@@ -52,14 +52,23 @@
       li:last-child {
         margin-right: 0;
       }
-      input {
+      input, button {
         padding: 10px;
         font-size: 1.5em;
+      }
+      button {
+        border-radius: 6px;
+        background-color: red;
+        border: none;
+        color: #eee;
       }
       /* [] = anything with v-cloak value */
       /* v-cloak works until page renders */
       [v-cloak] {
         background-color: red;
+      }
+      .num-count {
+        font-size: 4em;
       }
     </style>
   </head>
@@ -84,11 +93,22 @@
       </div><!-- /wrapper -->
     </header>
 
+
+<!-- ***** working with methods ********* -->
+
+<section style="margin-top: 50px;">
+  <div class='wrapper' id="counter">
+    <h1 class="num-count">{{count}}</h1>
+    <button v-on:click="countUp">Count Up</button>
+    <button v-on:click="countDown">Count Down</button>
+  </div>
+</section>
 <!-- *******  two way data binding ******* -->
-    <section>
+    <section style="margin-top: 50px;">
       <div class='wrapper' id="two-way">
-        <h3>{{output}}</h3>
+        <h3>Enter your email</h3>
         <input type='text' v-model="output" />
+        <h3>{{output}}</h3>
       </div>
     </section>
 
@@ -123,11 +143,27 @@
 <script src="https://unpkg.com/vue@2.2.1"></script>
 
 <script>
+var counter = new Vue({
+  el: '#counter',
+  data: {
+    count: 0
+  },
+  methods: {
+    countUp: function() {
+      this.count += 1
+    },
+    countDown: function() {
+      this.count -= 1
+    }
+  }
+})
+
+
 
 var twoWay = new Vue({
   el: '#two-way',
   data: {
-    output: 'Two Way Binding',
+    output: '',
   }
 })
 
