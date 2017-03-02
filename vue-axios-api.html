@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>WebPrintAudio / Vuejs : Starter File</title>
+    <title>Vue Axio API</title>
     <style>
       * {
         margin: 0;
@@ -34,6 +34,11 @@
         align-items: center;
         height: 100vh;
         text-align: center;
+      }
+      input {
+        padding: 10px;
+        margin: 5px 0;
+        font-size: 1.5em;
       }
       button {
         padding: 10px 20px;
@@ -73,7 +78,9 @@
 <div class='tm-grid'>
 <!-- app -->
 <div id='app'>
-    <h1>{{message}}</h1>
+
+  <h1 v-text="location"></h1>
+
 </div><!-- /app -->
 </div><!-- /tm-grid -->
 
@@ -85,19 +92,21 @@
   </footer>
 </div><!-- wpa -->
 </div><!-- /tm-grid -->
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script src="https://unpkg.com/vue@2.2.1"></script>
-<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
-<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
 
 <script>
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'H3llo World!'
+    location:""
   },
-  methods: {
-
+  mounted() {
+    axios.get('http://ziptasticapi.com/90210').then(response => this.location=response.data.city)
   }
+
 })
 
 
