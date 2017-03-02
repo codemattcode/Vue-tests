@@ -13,13 +13,16 @@
         background-color: #eee;
         font-family: 'Helvetica Neue', sans-serif;
         font-size: 200%;
-        color: #111;
+        color: #222;
         line-height: 1.5;
         letter-spacing: -.8px;
         word-spacing: -1px;
       }
       h1,h2,h3,h4,h5,h6,p {
-        font-size: 1.5em;
+        font-size: 2em;
+      }
+      h3 {
+        font-size: 1em;
       }
       img {
         margin: 10px 0;
@@ -62,7 +65,8 @@
       input, button {
         padding: 10px;
         margin: 5px 0;
-        font-size: 1.5em;
+        font-size: 1.1em;
+        text-transform: uppercase;
       }
       button {
         border-radius: 6px;
@@ -79,7 +83,7 @@
         display: inline-block;
       }
       .spacer {
-        margin-top: 25px;
+        margin-bottom: 40px;
       }
       .padder {
         padding: 20px 0;
@@ -91,7 +95,7 @@
 
 <!-- app -->
 <div id='app'>
-  <h1 class="padder">{{generateMessage}}</h1>
+  <h3 class="spacer">{{generateMessage}}</h3>
   <button @click="doRandom()">{{buttonTxt}}</button>
   <h1 class="padder">{{random}}</h1>
 </div><!-- /app -->
