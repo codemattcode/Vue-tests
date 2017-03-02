@@ -74,7 +74,7 @@
   <button @click="doRandom()">{{buttonTxt}}</button>
   <h1 class="padder">{{random}}</h1>
   <footer>
-    <div class="callout">{{signOff}} <span class="wpa"><a :href='link'>{{brand}}</a></span></div>
+    <div class="callout">Made with <a href="https://vuejs.org">Vue.js</a> by <span class="wpa"><a :href='link'>{{brand}}</a></span></div>
   </footer>
 </div><!-- /app -->
 </div><!-- /tm-grid -->
@@ -85,7 +85,7 @@ var app = new Vue({
   data: {
     random: 'Generate a password',
     buttonTxt: 'Press Me',
-    signOff: 'Made with code by ',
+    // signOff: 'Made with Vue.js by',
     brand: 'WebPrintAudio',
     link: 'http://webprintaudio.com'
   },
