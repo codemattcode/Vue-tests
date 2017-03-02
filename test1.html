@@ -166,9 +166,9 @@ var humanize = new Vue ({
     humanizeUrl: function() {
       // ^ means at beginning
       // $ means at end
-      // \/\// means remove / (regular expression)
+      // \/\/ means remove // (regular expression are enclosed in '//')
       this.cleanUrl =
-       this.dirtyUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')
+       this.dirtyUrl.replace(/^https?:\/\//, '').replace(/^www2?/, '').replace(/\/$/, '')
     }
   }
 })
