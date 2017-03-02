@@ -112,6 +112,8 @@ var app = new Vue({
     locations:''
   },
   mounted() {
+
+    // make ajax request to remote server
     axios.get('http://ziptasticapi.com/10982').then(huge => this.locations=huge.data)
   }
 
