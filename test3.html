@@ -65,75 +65,27 @@
         outline: none;
         color: #eee;
       }
-      /* [] = anything with v-cloak value */
-      /* v-cloak works until page renders */
-      [v-cloak] {
-        background-color: red;
-      }
-      .num-count {
-        font-size: 4em;
-      }
     </style>
   </head>
   <body>
-
-
-
-
 <div class='wrapper'>
-  <!-- app -->
+<!-- app -->
 <div style="margin-top: 50px;" id='app'>
-  <h1 v-text="text"></h1>
-  <h2 v-html="html"></h2>
-  <h3 v-show="show">v-show = true</h3>
-  <h4 v-if="1 == 2">v-if</h4>
-  <h4 v-else>v-else (displays when 'v-if' is false)</h4>
-  <h5 v-pre>{{v-pre}}</h5>
-  <h6 v-once>{{once}}</h6>
-  <p v-cloak>{{cloak}}</p>
+  <h1 v-text="message"></h1>
+  <h1>{{message}}</h1>
 </div><!-- /app -->
-<!-- *********** APP 2 ***********  -->
-<div style="margin-top: 50px;" id='app2'>
-  <h1 v-bind:title="title">{{title}}</h1>
-  <!-- 'v-bind' can be represented by ':' -->
-  <img :src='url' :alt='message' />
-  <ul class='normal'>
-    <li v-for="count in count">count = {{count}}</li>
-  </ul>
-</div><!-- /app2 -->
 </div><!-- /wrapper -->
 
+
+
 <script src="https://unpkg.com/vue@2.2.1"></script>
-
 <script>
-
-
-
-
-
-
-
-
 var app = new Vue({
   el: '#app',
   data: {
-    text: 'v-text',
-    html: '<i>v-html</i>',
-    show: true,
-    once: 'v-once',
-    cloak: 'v-cloak'
+    message: 'hello world!'
   }
 })
-var app2 = new Vue({
-  el: '#app2',
-  data: {
-    message: 'hello world!',
-    title: 'title loaded on ' + new Date(),
-    url: 'http://placehold.it/50',
-    list: [], count: 10
-  }
-})
-
 
 </script>
 </body>

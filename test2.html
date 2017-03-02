@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #eee;
+        font-family: sans-serif;
+        font-size: 150%;
+        color: #111
+      }
+      h1,h2,h3,h4,h5,h6,p {
+        font-size: 1.5em;
+      }
+      img {
+        margin: 10px 0;
+      }
+      .wrapper {
+        max-width: 1100px;
+        width: 90%;
+        margin: 0 auto;
+      }
+      header {
+        background-color: #fff;
+        padding: 20px 0;
+        margin-bottom: 30px;
+      }
+      .tm-grid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .middle {
+        display: flex;
+        align-items: center;
+      }
+      ul {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+      }
+      ul.normal {
+        display: block;
+      }
+      li {
+        margin-right: 10px;
+      }
+      li:last-child {
+        margin-right: 0;
+      }
+      input, button {
+        padding: 10px;
+        margin: 5px 0;
+        font-size: 1.5em;
+      }
+      button {
+        border-radius: 6px;
+        background-color: red;
+        border: none;
+        outline: none;
+        color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="tm-header">
+      <div class='wrapper'>
+        <div class='tm-grid'>
+
+          <div id="app-logo" class="middle">
+            <img :src='logoUrl' :alt='seoAlt' />
+            <h1>VueJS</h1>
+          </div><!-- /app-logo -->
+
+          <nav id="app-nav">
+            <ul v-for>
+              <li v-for="nav in navs">{{nav.link}}</li>
+            </ul>
+          </nav><!-- /app-nav -->
+
+        </div><!-- /tm-grid -->
+      </div><!-- /wrapper -->
+    </header>
+
+
+<!-- *********regular expression ************* -->
+<section style="margin-top: 50px;">
+  <div class='wrapper' id="humanize">
+    <p>
+      Visit: <a :href='dirtyUrl'>{{cleanUrl}}</a>
+    </p>
+    <input type='text' v-model="dirtyUrl" />
+    <button @click="humanizeUrl">Humanize</button>
+  </div>
+</section>
+<!-- ***** working with methods ********* -->
+<section style="margin-top: 50px;">
+  <div class='wrapper' id="counter">
+    <h1 class="num-count">{{count}}</h1>
+    <!-- '@' shorthands 'v-on:' -->
+    <button @click="countUp">Count Up</button>
+    <button @click="countDown">Count Down</button>
+  </div>
+</section>
+<!-- *******  two way data binding ******* -->
+    <section style="margin-top: 50px;">
+      <div class='wrapper' id="two-way">
+        <h3>Enter your email</h3>
+        <input type='text' v-model="output" />
+        <h3>{{output}}</h3>
+      </div>
+    </section>
+
+<script src="https://unpkg.com/vue@2.2.1"></script>
+
+<script>
+
+// using a 'regular expression'
+var humanize = new Vue ({
+  el: '#humanize',
+  data: {
+    dirtyUrl: "",
+    cleanUrl: ""
+  },
+  methods: {
+    humanizeUrl: function() {
+      // ^ means at beginning
+      // $ means at end
+      // \/\/ means remove // (regular expression are enclosed in '//')
+      this.cleanUrl =
+       this.dirtyUrl.replace(/^https?:\/\//, '').replace(/www./, '').replace(/\/$/, '')
+    }
+  }
+})
+
+
+
+
+var counter = new Vue({
+  el: '#counter',
+  data: {
+    count: 0
+  },
+  methods: {
+    countUp: function() {
+      this.count += 1
+    },
+    countDown: function() {
+      this.count -= 1
+    }
+  }
+})
+
+
+
+var twoWay = new Vue({
+  el: '#two-way',
+  data: {
+    output: '',
+  }
+})
+
+
+// header
+
+
+var appNav = new Vue ({
+  el: '#app-nav',
+  data: {
+    navs: [
+      {link: 'Home'},
+      {link: 'Sevices'},
+      {link: 'About'},
+      {link: 'Portfolio'},
+      {link: 'Contact'},
+      {link: 'Blog'}
+    ]
+  }
+})
+
+var appLogo = new Vue ({
+  el: '#app-logo',
+  data: {
+    seoAlt: 'the best brand ever for free',
+    logoUrl: 'http://placehold.it/20'
+  }
+})
+
+</script>
+</body>
+</html>
