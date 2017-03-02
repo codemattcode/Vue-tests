@@ -58,7 +58,12 @@
       .padder {
         padding: 20px 0;
       }
-
+      ul {
+        list-style-type: none;
+      }
+      li {
+        text-align: left;
+      }
       /* *************** */
       /* wpa boilerplate */
       footer {
@@ -79,7 +84,10 @@
 <!-- app -->
 <div id='app'>
 
-  <h1 v-text="location"></h1>
+  <!-- <h1 v-text="location"></h1> -->
+  <ul>
+    <li v-for="location in locations">{{location}}</li>
+  </ul>
 
 </div><!-- /app -->
 </div><!-- /tm-grid -->
@@ -101,10 +109,10 @@
 var app = new Vue({
   el: '#app',
   data: {
-    location:""
+    locations:''
   },
   mounted() {
-    axios.get('http://ziptasticapi.com/90210').then(response => this.location=response.data.city)
+    axios.get('http://ziptasticapi.com/10982').then(huge => this.locations=huge.data)
   }
 
 })
