@@ -7,6 +7,7 @@
       * {
         margin: 0;
         padding: 0;
+        user-select: none;
       }
       body {
         background-color: #eee;
@@ -76,21 +77,24 @@
 <div style="margin-top: 50px;" id='app'>
   <h1 v-text="message"></h1>
   <h1>{{callout}}</h1>
-  <h1>{{Math.random()}}</h1>
+  <h1 v-on:click="doRandom()">{{random}}</h1>
   <h1 v-text='9*9'></h1>
   <h1>{{7*8}}</h1>
 </div><!-- /app -->
 </div><!-- /wrapper -->
-
-
-
 <script src="https://unpkg.com/vue@2.2.1"></script>
 <script>
 var app = new Vue({
   el: '#app',
   data: {
     message: 'hello world!',
-    callout: 'this is a callout'
+    callout: 'this is a callout',
+    random: Math.random()
+  },
+  methods: {
+    doRandom(){
+    this.random = Math.random()
+    }
   }
 })
 
