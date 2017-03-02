@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Random Password Generator</title>
+    <title></title>
     <style>
       * {
         margin: 0;
@@ -53,6 +53,9 @@
       .padder {
         padding: 20px 0;
       }
+
+      /* *************** */
+      /* wpa boilerplate */
       footer {
         display: flex;
         justify-content: center;
@@ -69,33 +72,47 @@
   <body>
 <div class='tm-grid'>
 
+
+
 <!-- app -->
 <div id='app'>
-  <button @click="doRandom()">{{buttonTxt}}</button>
-  <h1 class="padder">{{random}}</h1>
+    <h1>{{message}}</h1>
+</div><!-- /wpa -->
+
+
+
+<!-- wpa boilerplate -->
+<div id='wpa'>
   <footer>
-    <div class="callout">Made with <a href="https://vuejs.org">Vue.js</a> by <span><a :href='link'>{{brand}}</a></span></div>
+      <div class="callout">Made with <a href="https://vuejs.org">Vue.js</a> by <span><a :href='link'>{{brand}}</a></span></div>
   </footer>
-</div><!-- /app -->
+</div><!-- wpa -->
 </div><!-- /tm-grid -->
 <script src="https://unpkg.com/vue@2.2.1"></script>
+
+
 <script>
 var app = new Vue({
   el: '#app',
   data: {
-    random: 'Generate a password',
-    buttonTxt: 'Press Me',
-    // signOff: 'Made with Vue.js by',
-    brand: 'WebPrintAudio',
-    link: 'http://webprintaudio.com'
+    message: 'H3llo World!'
   },
   methods: {
-    doRandom(){
-    this.random = Math.random().toString(24).slice(2)
-    }
+
   }
 })
 
+
+
+
+// WPA boilerplate
+var wPa = new Vue({
+  el: '#wpa',
+  data: {
+    brand: 'WebPrintAudio',
+    link: 'http://webprintaudio.com'
+  }
+})
 </script>
 </body>
 </html>
