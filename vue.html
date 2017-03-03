@@ -78,6 +78,7 @@
 <!-- app -->
 <div id='app'>
     <h1>{{reversedMessage}}</h1>
+    <h1>{{sumof}}</h1>
 </div><!-- /app -->
 </div><!-- /tm-grid -->
 
@@ -105,6 +106,9 @@ var app = new Vue({
   computed: {
     reversedMessage() {
     return this.message.split('').reverse().join('')
+  },
+    sumof() {
+      return 9*9
     }
   }
 })
