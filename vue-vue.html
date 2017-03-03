@@ -41,6 +41,7 @@
       button, input {
         padding: 10px 20px;
         margin: 5px 0;
+        margin-bottom: 50px;
         font-size: 1.1em;
         text-transform: uppercase;
         border-radius: 6px;
@@ -79,16 +80,14 @@
 <div id='app'>
 
   <input type='text' v-model="newName"/>
-  <button @click="addName">Add Name</button>
-  
+  <button :title="title" @click="addName">Add Name</button>
+
     <ul>
       <li v-for="name in names">{{name}}</li>
     </ul>
 
-
-
 </div><!-- /app -->
-</div><!-- /tm-grid -->
+  </div><!-- /tm-grid -->
 
 
 <!-- wpa boilerplate -->
@@ -98,27 +97,25 @@
   </footer>
 </div><!-- wpa -->
 </div><!-- /tm-grid -->
-<script src="https://unpkg.com/vue@2.2.1"></script>
+  <script src="https://unpkg.com/vue@2.2.1"></script>
 
 
 <script>
 var app = new Vue({
   el: '#app',
   data: {
+    title: 'hello button',
     newName : '',
     names: ['joe', 'mary', 'jane']
   },
   methods: {
     addName() {
-      this.names.push(this.newName)
+      this.names.push(this.newName),
+      this.newName = ''
     }
-  },
+  }
 
 })
-
-
-
-
 // WPA boilerplate
 var wPa = new Vue({
   el: '#wpa',
