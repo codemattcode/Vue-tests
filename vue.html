@@ -77,7 +77,7 @@
 <div class='tm-grid'>
 <!-- app -->
 <div id='app'>
-    <h1>{{message}}</h1>
+    <h1>{{reversedMessage}}</h1>
 </div><!-- /app -->
 </div><!-- /tm-grid -->
 
@@ -89,17 +89,23 @@
   </footer>
 </div><!-- wpa -->
 </div><!-- /tm-grid -->
-<script src="https://unpkg.com/vue@2.2.1"></script>
+  <script src="https://unpkg.com/vue@2.2.1"></script>
 
 
 <script>
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'H3llo World!'
+    message: 'H3llo World!',
+
   },
   methods: {
 
+  },
+  computed: {
+    reversedMessage() {
+    return this.message.split('').reverse().join('')
+    }
   }
 })
 
