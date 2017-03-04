@@ -17,12 +17,13 @@
       background-color: #5B2877;
       }
       .left {
-        flex:1;
         background-color: #CEEE8F;
         padding: 20px;
+        margin: 0 10px;
       }
       .right {
-        margin: 0 20px;
+        flex:1;
+        margin: 0 10px;
         background-color: #ffff99;
         padding: 20px;
       }
@@ -30,8 +31,11 @@
   </head>
   <body>
     <div class='box'>
-      <div class='left'>'flex:1' takes up remaining space on row</div>
-      <div class='right'>width of content</div>
+
+      <div class='left'>width of content</div>
+
+      <div class='right'>'flex:1' takes up remaining space on row</div>
+
     </div>
   </body>
 </html>
