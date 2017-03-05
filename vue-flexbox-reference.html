@@ -30,12 +30,39 @@
     </style>
   </head>
   <body>
-    <div class='box'>
+    <div class='box' id="app">
 
-      <div class='left'>width of content</div>
+      <div class='left' @click="test">{{message}}</div>
 
       <div class='right'>'flex:1' takes up remaining space on row</div>
 
     </div>
-  </body>
-</html>
+
+    <script src="https://unpkg.com/vue@2.2.1"></script>
+
+
+    <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Width of content'
+      },
+      methods: {
+
+      }
+    })
+
+
+
+
+    // WPA boilerplate
+    var wPa = new Vue({
+      el: '#wpa',
+      data: {
+        brand: 'WebPrintAudio',
+        link: 'http://webprintaudio.com'
+      }
+    })
+    </script>
+    </body>
+    </html>
