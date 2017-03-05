@@ -52,7 +52,7 @@
 
       <div class='left' @click="test()" :style="styleObject">{{left}}</div>
 
-      <div :class="{active : activeClass}" class='right'>{{right}}</div>
+      <div :class="{active : isActive}" class='right'>{{right}}</div>
 
     </div><!-- /box -->
 </div><!-- /app -->
@@ -67,16 +67,16 @@
         info: 'flex:0',
         left: 'click me!',
         right: '"flex:0" takes up this much space',
-        activeClass: false,
+        isActive: false,
         styleObject: {
           color: 'white'
         }
       },
     methods: {
       test() {
-        this.activeClass = !this.activeClass
+        this.isActive = !this.isActive
         this.right = 'but "flex:1" takes up remaining space on row'
-        if(activeClass = true) {
+        if(isActive = !this.isActive) {
           this.right = '"flex:0" takes up this much space'
         }
         }
