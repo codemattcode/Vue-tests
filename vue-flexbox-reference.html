@@ -32,9 +32,12 @@
   <body>
     <div class='box' id="app">
 
-      <div class='left' @click="test">{{message}}</div>
+      <div class='left' @click="test()">{{left}}</div>
 
-      <div class='right'>'flex:1' takes up remaining space on row</div>
+      <div class='right'>{{right}}</div>
+
+      
+
 
     </div>
 
@@ -45,24 +48,15 @@
     var app = new Vue({
       el: '#app',
       data: {
-        message: 'Width of content'
+        left: 'Width of content',
+        right: '"flex:1" takes up remaining space on row'
       },
       methods: {
-
+        test() {
+          this.right = '"flex:1" takes up remaining space on row - ARRR Yeah!'
+        }
       }
     })
-
-
-
-
-    // WPA boilerplate
-    var wPa = new Vue({
-      el: '#wpa',
-      data: {
-        brand: 'WebPrintAudio',
-        link: 'http://webprintaudio.com'
-      }
-    })
-    </script>
+</script>
     </body>
     </html>
