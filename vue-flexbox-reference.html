@@ -10,33 +10,49 @@
       font-size: 1.5em;
       color: #111;
       background-color: #ccc;
+      user-select: none;
     }
       .box {
       display: flex;
       padding: 30px;
-      background-color: #5B2877;
+      height: 200px;
+      background-color: #f7f7f7;
       }
       .left {
+        flex: 0;
         background-color: #CEEE8F;
         padding: 20px;
         margin: 0 10px;
       }
-      .right {
-        flex:1;
-        margin: 0 10px;
-        background-color: #ffff99;
+      .left-before {
         padding: 20px;
+        margin: 0 10px;
+      }
+      .right {
+        flex: 0;
+        margin: 0 10px;
+        background-color: #CEEE8F;
+        padding: 20px;
+        transition: 1s ease;
+      }
+      .active {
+        flex:1;
+        color: red;
+        font-size: 2em;
+        background-color: #ffff99;
+        /*padding-bottom: 50px;*/
       }
     </style>
   </head>
   <body>
     <div class='box' id="app">
 
-      <div class='left' @click="test()">{{left}}</div>
+      <div class='left-before'>hello</div>
+      <div class='left' @click="test()" :style="styleObject">{{left}}</div>
 
-      <div class='right'>{{right}}</div>
+      <div :class="{active : isActive}" class='right'>{{right}}</div>
 
-      
+
 
 
     </div>
@@ -48,12 +64,20 @@
     var app = new Vue({
       el: '#app',
       data: {
-        left: 'Width of content',
-        right: '"flex:1" takes up remaining space on row'
+        left: 'click me!',
+        right: '"flex:0" takes up this much space',
+        isActive: false,
+        styleObject: {
+          color: 'white'
+        }
       },
-      methods: {
-        test() {
-          this.right = '"flex:1" takes up remaining space on row - ARRR Yeah!'
+    methods: {
+      test() {
+        this.isActive = !this.isActive
+        this.right = 'but "flex:1" takes up remaining space on row'
+        if(isActive = !this.isActive) {
+          this.right = '"flex:0" takes up this much space'
+        }
         }
       }
     })
