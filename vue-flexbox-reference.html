@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Flexbox &amp; Vue</title>
 
     <style>
     body{
@@ -52,7 +52,7 @@
 
       <div class='left' @click="test()" :style="styleObject">{{left}}</div>
 
-      <div :class="{active : isActive}" class='right'>{{right}}</div>
+      <div :class="{active : activeClass}" class='right'>{{right}}</div>
 
     </div><!-- /box -->
 </div><!-- /app -->
@@ -67,16 +67,16 @@
         info: 'flex:0',
         left: 'click me!',
         right: '"flex:0" takes up this much space',
-        isActive: false,
+        activeClass: false,
         styleObject: {
           color: 'white'
         }
       },
     methods: {
       test() {
-        this.isActive = !this.isActive
+        this.activeClass = !this.activeClass
         this.right = 'but "flex:1" takes up remaining space on row'
-        if(isActive = !this.isActive) {
+        if(activeClass = true) {
           this.right = '"flex:0" takes up this much space'
         }
         }
