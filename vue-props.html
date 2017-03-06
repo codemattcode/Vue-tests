@@ -80,8 +80,8 @@
 <div id='app'>
 
 
-  <comp propsMsg="this is a prop"></comp>
   <comp></comp>
+  <comp Myprops="this is a prop"></comp>
   <comp></comp>
 
 
@@ -104,13 +104,13 @@ Vue.component('comp', {
   template: `
 <div>
   <h1 @click="boom">{{message}}</h1>
-  <h3>{{propsMsg}}</h3>
+  <h3>{{Myprops}}</h3>
 </div>
   `,
   props: {
-      propsMsg: {
+      Myprops: {
         type: String,
-        default: 'Empty'
+        default: 'yarg!'
     }
   },
   data() {
