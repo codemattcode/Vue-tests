@@ -77,14 +77,22 @@
 <div class='tm-grid'>
 <!-- app -->
 <div id='app'>
+
+  <comp>
     <h1>{{message}}</h1>
+  </comp>
+
+  <comp>
+    <h1>{{message}}</h1>
+  </comp>
+
 </div><!-- /app -->
 </div><!-- /tm-grid -->
 
 
 <!-- wpa boilerplate -->
-<div id='wpa'>
-  <footer>
+  <div id='wpa'>
+    <footer>
       <div class="callout">Made with <a href="https://vuejs.org">Vue.js</a> by <span><a :href='link'>{{brand}}</a></span></div>
   </footer>
 </div><!-- wpa -->
@@ -93,6 +101,18 @@
 
 
 <script>
+Vue.component('comp', {
+  template: '<li><slot></slot></li>',
+
+// not sure how data fits in ??
+  data() {
+    return {
+      dataMessage: 'this is a data function'
+    }
+  }
+})
+
+
 var app = new Vue({
   el: '#app',
   data: {
