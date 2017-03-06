@@ -72,6 +72,11 @@
         text-align: center;
       }
     </style>
+    <style scoped>
+      .contacted {
+        text-decoration: line-through;
+      }
+    </style>
   </head>
   <body>
 <div class='tm-grid'>
@@ -113,10 +118,11 @@ Vue.component('comp', {
 
     <li v-for="user in users">
 
-    <input type="checkbox" class="toggle" v-model="user.contacted" />
+    <input type="checkbox" v-model="user.contacted" />
 
     <span :class="{contacted: user.contacted}">
       {{user.name}} : {{user.email}}
+      <button @click="deleteUser(user)">X</button>
     </span>
 
     </li>
@@ -166,6 +172,9 @@ Vue.component('comp', {
         contacted: false
       })
       e.preventDefault()
+    },
+    deleteUser: function(user) {
+      this.users.splice(this.users.indexOf(user), 1)
     }
   }
 })
