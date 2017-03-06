@@ -100,15 +100,29 @@ Vue.component('comp', {
   <div>
 
   <form v-on:submit="addUser">
+
     <input type="text" v-model="newUser.name" placeholder="Enter name">
     <br />
+
     <input type="text" v-model="newUser.email" placeholder="Enter Email">
     <input type="submit" value="Submit"/>
+
   </form>
 
-    <ul>
-      <li v-for="user in users">{{user.name}} : {{user.email}}</li>
-    </ul>
+  <ul>
+
+    <li v-for="user in users">
+
+    <input type="checkbox" class="toggle" v-model="user.contacted" />
+
+    <span :class="{contacted: user.contacted}">
+      {{user.name}} : {{user.email}}
+    </span>
+
+    </li>
+
+  </ul>
+
   </div>
   `,
   props: {
