@@ -78,11 +78,17 @@
 <!-- app -->
 <div id='app'>
 
-    <bait>One</bait>
-    <task></task>
-    <bait>Three</bait>
-</div><!-- /app -->
-</div><!-- /tm-grid -->
+
+  <bait>One</bait>
+
+  <task></task>
+
+  <shrew></shrew>
+
+
+
+  </div><!-- /app -->
+      </div><!-- /tm-grid -->
 
 
 <!-- wpa boilerplate -->
@@ -96,6 +102,10 @@
 
 
 <script>
+Vue.component('bait', {
+  template: '<li><slot></slot></li>'
+})
+
 Vue.component('task', {
   template: '<li>{{dataMessage}}</li>',
   data() {
@@ -103,24 +113,30 @@ Vue.component('task', {
       dataMessage: 'this is a data function'
     }
   }
-}),
-
-Vue.component('bait', {
-  template: '<li><slot></slot></li>',
 })
+
+Vue.component('shrew', {
+  template: `
+  <div>
+    <p>{{user.firstName}}</p>
+    <p v-text="user.secondName"></p>
+  </div>
+  `,
+  data() {
+    return {
+      user: {
+        firstName: 'Fred',
+        secondName: 'Bloggs'
+      }
+    }
+  }
+})
+
 
 
 var app = new Vue({
   el: '#app',
-  // data: {
-  //   message: 'H3llo World!'
-  // },
-  // methods: {
-  //
-  // }
 })
-
-
 
 
 // WPA boilerplate
