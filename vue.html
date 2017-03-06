@@ -20,7 +20,6 @@
       }
       h1 {
         font-size: 2em;
-        cursor: pointer;
       }
       h3 {
         font-size: 1em;
@@ -79,10 +78,7 @@
 <!-- app -->
 <div id='app'>
 
-
-  <comp propsMsg="this is a prop"></comp>
-  <comp></comp>
-  <comp></comp>
+    <comp msg="H3llo"></comp>
 
 
 </div><!-- /app -->
@@ -90,8 +86,8 @@
 
 
 <!-- wpa boilerplate -->
-  <div id='wpa'>
-    <footer>
+<div id='wpa'>
+  <footer>
       <div class="callout">Made with <a href="https://vuejs.org">Vue.js</a> by <span><a :href='link'>{{brand}}</a></span></div>
   </footer>
 </div><!-- wpa -->
@@ -103,31 +99,29 @@
 Vue.component('comp', {
   template: `
 <div>
-  <h1 @click="boom">{{message}}</h1>
-  <h3>{{propsMsg}}</h3>
+  <h1>{{msg}} {{message}}</h1>
 </div>
   `,
   props: {
-      propsMsg: {
+      msg: {
         type: String,
         default: 'Empty'
     }
   },
   data() {
     return {
-      message: 'message goes here'
+      message: 'World!'
     }
   },
-  methods: {
-    boom: function(){
-      this.message = 'update message'
-    }
-  }
 })
 
 
+
+
+
+
 var app = new Vue({
-  el: '#app'
+  el: '#app',
 })
 
 
