@@ -106,6 +106,7 @@ Vue.component('comp', {
 <div>
   <h1 @click="boom">{{message}}</h1>
   <h3>{{Myprops}}</h3>
+  <h6 :style="freeStyler">chips</h6>
 </div>
   `,
   props: {
@@ -116,7 +117,11 @@ Vue.component('comp', {
   },
   data() {
     return {
-      message: 'message goes here'
+      message: 'message goes here',
+      freeStyler: {
+        background: 'red',
+        padding: '10px'
+      }
     }
   },
   methods: {
