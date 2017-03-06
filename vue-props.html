@@ -20,6 +20,7 @@
       }
       h1 {
         font-size: 2em;
+        cursor: pointer;
       }
       h3 {
         font-size: 1em;
@@ -78,11 +79,11 @@
 <!-- app -->
 <div id='app'>
 
-  <comp>
-    <h1>{{message}}</h1>
-  </comp>
 
-  
+  <comp msg="this is a prop"></comp>
+  <comp></comp>
+  <comp></comp>
+
 
 </div><!-- /app -->
 </div><!-- /tm-grid -->
@@ -100,25 +101,33 @@
 
 <script>
 Vue.component('comp', {
-  template: '<li><slot></slot></li>',
-
-// not sure how data fits in ??
+  template: `
+<div>
+  <h1 @click="boom">{{message}}</h1>
+  <h3>{{msg}}</h3>
+</div>
+  `,
+  props: {
+      msg: {
+        type: String,
+        default: 'Empty'
+    }
+  },
   data() {
     return {
-      dataMessage: 'this is a data function'
+      message: 'message goes here'
+    }
+  },
+  methods: {
+    boom: function(){
+      this.message = 'update message'
     }
   }
 })
 
 
 var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'H3llo World!'
-  },
-  methods: {
-
-  }
+  el: '#app'
 })
 
 
