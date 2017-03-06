@@ -86,6 +86,8 @@
   <shrew></shrew>
 
 
+  <toad></toad>
+
 
   </div><!-- /app -->
       </div><!-- /tm-grid -->
@@ -137,6 +139,27 @@ Vue.component('shrew', {
   }
 })
 
+
+Vue.component('toad', {
+  template: `
+
+    <ul>
+      <li v-if="showName" v-for="user in users">{{user.title}}</li>
+    </ul>
+
+  `,
+  data() {
+    return {
+      users: [
+        {title: 'Jane'},
+        {title: 'Jones'},
+        {title: 'NY'}
+      ],
+      error: '<i>error</i>',
+      showName: true
+    }
+  }
+})
 
 
 var app = new Vue({
