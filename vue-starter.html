@@ -77,7 +77,10 @@
 <div class='tm-grid'>
 <!-- app -->
 <div id='app'>
-    <h1>{{message}}</h1>
+
+    <comp msg="H3llo"></comp>
+
+
 </div><!-- /app -->
 </div><!-- /tm-grid -->
 
@@ -93,14 +96,32 @@
 
 
 <script>
+Vue.component('comp', {
+  template: `
+<div>
+  <h1>{{msg}} {{message}}</h1>
+</div>
+  `,
+  props: {
+      msg: {
+        type: String,
+        default: 'Empty'
+    }
+  },
+  data() {
+    return {
+      message: 'World!'
+    }
+  },
+})
+
+
+
+
+
+
 var app = new Vue({
   el: '#app',
-  data: {
-    message: 'H3llo World!'
-  },
-  methods: {
-
-  }
 })
 
 

@@ -78,29 +78,28 @@
 <!-- app -->
 <div id='app'>
 
-    <comp msg="H3llo"></comp>
+
+    <comp></comp>
 
 
 </div><!-- /app -->
 </div><!-- /tm-grid -->
-
-
 <!-- wpa boilerplate -->
 <div id='wpa'>
   <footer>
-      <div class="callout">Made with <a href="https://vuejs.org">Vue.js</a> by <span><a :href='link'>{{brand}}</a></span></div>
+    <div class="callout">Made with <a href="https://vuejs.org">Vue.js</a> by <span><a :href='link'>{{brand}}</a></span></div>
   </footer>
 </div><!-- wpa -->
-</div><!-- /tm-grid -->
-<script src="https://unpkg.com/vue@2.2.1"></script>
+  </div><!-- /tm-grid -->
+  <script src="https://unpkg.com/vue@2.2.1"></script>
 
 
 <script>
 Vue.component('comp', {
   template: `
-<div>
-  <h1>{{msg}} {{message}}</h1>
-</div>
+    <ul>
+      <li v-for="user in users">{{user.name}} {{user.email}}</li>
+    </ul>
   `,
   props: {
       msg: {
@@ -110,7 +109,28 @@ Vue.component('comp', {
   },
   data() {
     return {
-      message: 'World!'
+      users: [
+        {
+          name: 'John',
+          email: 'john@beatles.co.uk',
+          contacted: false
+        },
+        {
+          name: 'Paul',
+          email: 'paul@beatles.co.uk',
+          contacted: false
+        },
+        {
+          name: 'George',
+          email: 'george@beatles.co.uk',
+          contacted: false
+        },
+        {
+          name: 'Ringo',
+          email: 'ringo@beatles.co.uk',
+          contacted: false
+        }
+      ]
     }
   },
 })
