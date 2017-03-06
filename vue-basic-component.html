@@ -118,7 +118,8 @@ Vue.component('task', {
 Vue.component('shrew', {
   template: `
   <div>
-    <span>{{user.firstName}}</span>
+    <span v-if="showName">{{user.firstName}}</span>
+    <span v-else v-html="user.error"></span>
     <span v-text="user.secondName"></span>
     <span v-html="user.city"></span>
   </div>
@@ -128,9 +129,10 @@ Vue.component('shrew', {
       user: {
         firstName: 'Fred',
         secondName: 'Bloggs',
-        city: '<i>LA</i>'
-
-      }
+        city: '<b>LA</b>',
+        error: '<i>error</i>'
+      },
+      showName: false
     }
   }
 })
