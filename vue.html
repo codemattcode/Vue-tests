@@ -97,9 +97,19 @@
 <script>
 Vue.component('comp', {
   template: `
+  <div>
+
+  <form v-on:submit="addUser">
+    <input type="text" v-model="newUser.name" placeholder="Enter name">
+    <br />
+    <input type="text" v-model="newUser.email" placeholder="Enter Email">
+    <input type="submit" value="Submit"/>
+  </form>
+
     <ul>
-      <li v-for="user in users">{{user.name}} {{user.email}}</li>
+      <li v-for="user in users">{{user.name}} : {{user.email}}</li>
     </ul>
+  </div>
   `,
   props: {
       msg: {
@@ -109,30 +119,41 @@ Vue.component('comp', {
   },
   data() {
     return {
+      newUser: {},
       users: [
         {
           name: 'John',
-          email: 'john@beatles.co.uk',
+          email: 'john@thebeatles.co.uk',
           contacted: false
         },
         {
           name: 'Paul',
-          email: 'paul@beatles.co.uk',
+          email: 'paul@thebeatles.co.uk',
           contacted: false
         },
         {
           name: 'George',
-          email: 'george@beatles.co.uk',
+          email: 'george@thebeatles.co.uk',
           contacted: false
         },
         {
           name: 'Ringo',
-          email: 'ringo@beatles.co.uk',
+          email: 'ringo@thebeatles.co.uk',
           contacted: false
         }
       ]
     }
   },
+  methods: {
+    addUser: function(e) {
+      this.users.push({
+        name: this.newUser.name,
+        email: this.newUser.email,
+        contacted: false
+      })
+      e.preventDefault()
+    }
+  }
 })
 
 
