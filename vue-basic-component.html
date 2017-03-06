@@ -14,7 +14,7 @@
         font-family: 'Helvetica Neue', sans-serif;
         font-size: 200%;
         color: #222;
-        line-height: 1.1;
+        line-height: 2.5;
         letter-spacing: -.8px;
         word-spacing: -1px;
       }
@@ -118,15 +118,18 @@ Vue.component('task', {
 Vue.component('shrew', {
   template: `
   <div>
-    <p>{{user.firstName}}</p>
-    <p v-text="user.secondName"></p>
+    <span>{{user.firstName}}</span>
+    <span v-text="user.secondName"></span>
+    <span v-html="user.city"></span>
   </div>
   `,
   data() {
     return {
       user: {
         firstName: 'Fred',
-        secondName: 'Bloggs'
+        secondName: 'Bloggs',
+        city: '<i>LA</i>'
+
       }
     }
   }
