@@ -78,9 +78,9 @@
 <!-- app -->
 <div id='app'>
 
-    <task>One</task>
-    <task>Two</task>
-    <task>Three</task>
+    <bait>One</bait>
+    <task></task>
+    <bait>Three</bait>
 </div><!-- /app -->
 </div><!-- /tm-grid -->
 
@@ -97,15 +97,18 @@
 
 <script>
 Vue.component('task', {
-  template: '<li><slot></slot></li>',
-
-// not sure how data fits in ??
+  template: '<li>{{dataMessage}}</li>',
   data() {
     return {
       dataMessage: 'this is a data function'
     }
   }
+}),
+
+Vue.component('bait', {
+  template: '<li><slot></slot></li>',
 })
+
 
 var app = new Vue({
   el: '#app',
