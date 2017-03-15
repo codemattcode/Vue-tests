@@ -32,14 +32,14 @@
     <!-- specify the link by passing the `to` prop. -->
     <!-- <router-link> will be rendered as an `<a>` tag by default -->
   <p>
-    <router-link to="/home">Props</router-link>
+    <router-link to="/home">Home</router-link>
     <router-link to="/about">About</router-link>
   </p>
   </div>
   <!-- route outlet -->
   <!-- component matched by the route will render here -->
   <router-view></router-view>
-</div>
+</div><!-- /#app -->
 
 
 
@@ -48,15 +48,15 @@
 
 // 1. Define route components.
 // These can be imported from other files
-const Foo = { template: `
+const Home = { template: `
 <div>
-<h1>This is the home page</h1>
+<h2>This is the Home page</h2>
 </div>
 ` }
 
-const Bar = { template: `
+const About = { template: `
 <div>
-<h1>This is the About page</h1>
+<h2>This is the About page</h2>
 </div>
 ` }
 
@@ -66,8 +66,8 @@ const Bar = { template: `
 // Vue.extend(), or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-{ path: '/foo', component: Foo },
-{ path: '/bar', component: Bar }
+{ path: '/home', component: Home },
+{ path: '/about', component: About }
 ]
 
 // 3. Create the router instance and pass the `routes` option
