@@ -7,6 +7,8 @@
     body{
       font-family: sans-serif;
       background-color: #f7f7f7;
+      width: 960px;
+      margin: auto;
     }
     a{
      color: red;
@@ -14,19 +16,26 @@
      padding: 20px;
      padding-left: 0;
     }
+    .flexNav{
+      display: flex;
+      justify-content: space-between;;
+    }
   </style>
 </head>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <body>
 <div id="app">
-  <p class="flexNav">
+  <div class='flexNav'>
+    <h1>codeMattCode</h1>
     <!-- use router-link component for navigation. -->
     <!-- specify the link by passing the `to` prop. -->
     <!-- <router-link> will be rendered as an `<a>` tag by default -->
+  <p>
     <router-link to="/foo">Props</router-link>
     <router-link to="/bar">About</router-link>
   </p>
+  </div>
   <!-- route outlet -->
   <!-- component matched by the route will render here -->
   <router-view></router-view>
