@@ -34,21 +34,20 @@
     <router-link to="/about">About</router-link>
   </p>
   </div>
-
   <router-view></router-view>
 </div><!-- /#app -->
 
 
 
 <script>
-const Home = { template: `
+Home = { template: `
 <div>
 <h2>This is the Home page</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi eaque laborum ipsum reiciendis qui, veniam quas dolores perferendis laboriosam incidunt, facilis dolorem. Modi sint esse fugiat error voluptatum, beatae provident?</p>
+<p>{{hello}}</p>
 </div>
 ` }
 
-const About = { template: `
+About = { template: `
 <div>
 <h2>This is the About page</h2>
 <p>Quo omnis reprehenderit voluptates minima quae ad vero dolores vitae aspernatur officiis esse quaerat, pariatur voluptatem eius praesentium enim velit vel voluptatibus.</p>
@@ -56,22 +55,30 @@ const About = { template: `
 ` }
 
 
-const routes = [
+routes = [
 { path: '/home', component: Home },
 { path: '/about', component: About }
 ]
 
 
-const router = new VueRouter({
+router = new VueRouter({
 routes
 })
 
 
-const app = new Vue({
+new Vue({
+el: '#app',
+data: {
+  hello: 'Remote Location:',
+  locations:''
+},
 router
-}).$mount('#app')
-
+})
 
 </script>
+
+
+
+
 </body>
 </html>
