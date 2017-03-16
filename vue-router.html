@@ -28,26 +28,18 @@
 <div id="app">
   <div class='flexNav'>
     <h1>codeMattCode</h1>
-<!-- use router-link component for navigation. -->
-<!-- specify the link by passing the `to` prop. -->
-<!-- <router-link> will be rendered as an `<a>` tag by default -->
   <p>
     <router-link to="/home">Home</router-link>
     <router-link to="/about">About</router-link>
   </p>
   </div>
-<!-- route outlet -->
-<!-- component matched by the route will render here -->
+
   <router-view></router-view>
 </div><!-- /#app -->
 
 
 
 <script>
-// 0. If using a module system, call Vue.use(VueRouter)
-
-// 1. Define route components.
-// These can be imported from other files
 const Home = { template: `
 <div>
 <h2>This is the Home page</h2>
@@ -62,31 +54,23 @@ const About = { template: `
 </div>
 ` }
 
-// 2. Define some routes
-// Each route should map to a component. The "component" can
-// either be an actual component constructor created via
-// Vue.extend(), or just a component options object.
-// We'll talk about nested routes later.
+
 const routes = [
 { path: '/home', component: Home },
 { path: '/about', component: About }
 ]
 
-// 3. Create the router instance and pass the `routes` option
-// You can pass in additional options here, but let's
-// keep it simple for now.
+
 const router = new VueRouter({
 routes
 })
 
-// 4. Create and mount the root instance.
-// Make sure to inject the router with the router option to make the
-// whole app router-aware.
+
 const app = new Vue({
 router
 }).$mount('#app')
 
-// Now the app has started!
+
 </script>
 </body>
 </html>
