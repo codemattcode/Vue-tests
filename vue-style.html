@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Vue Axio API</title>
+    <title>WebPrintAudio / Vuejs : Starter File</title>
     <style>
       * {
         margin: 0;
@@ -28,6 +28,14 @@
         text-decoration: none;
         color: #ff3333;
       }
+      li {
+        list-style-type: none;
+      }
+      li.flat{
+        display: inline-block;
+        margin-right: 10px;
+        margin-top: 30px;
+      }
       .tm-grid {
         display: flex;
         justify-content: center;
@@ -35,12 +43,7 @@
         height: 100vh;
         text-align: center;
       }
-      input {
-        padding: 10px;
-        margin: 5px 0;
-        font-size: 1.5em;
-      }
-      button {
+      button, input {
         padding: 10px 20px;
         margin: 5px 0;
         font-size: 1.1em;
@@ -53,17 +56,13 @@
         transition: ease .2s;
       }
       button:hover {
-        transform: scale(1.2);
+        /*transform: scale(1.2);*/
+        background-color: #ff3333;
       }
       .padder {
         padding: 20px 0;
       }
-      ul {
-        list-style-type: none;
-      }
-      li {
-        text-align: left;
-      }
+
       /* *************** */
       /* wpa boilerplate */
       footer {
@@ -84,11 +83,8 @@
 <!-- app -->
 <div id='app'>
 
-  <h1>{{message}}</h1>
-  <!-- <h1 v-text="location"></h1> -->
-  <ul>
-    <li v-for="location in locations">{{location}}</li>
-  </ul>
+    <comp :style="styler" msg="H3llo"></comp>
+
 
 </div><!-- /app -->
 </div><!-- /tm-grid -->
@@ -101,24 +97,45 @@
   </footer>
 </div><!-- wpa -->
 </div><!-- /tm-grid -->
-
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue@2.2.1"></script>
 
+
 <script>
+Vue.component('comp', {
+  template: `
+<div>
+  <h1 :style="lime">{{msg}} {{message}}</h1>
+</div>
+  `,
+  props: {
+      msg: {
+        type: String,
+        default: 'Empty'
+    }
+  },
+  data() {
+    return {
+      message: 'World!',
+      lime: {
+        color: "red",
+        backgroundColor: "yellow"
+      }
+    }
+  },
+})
+
+
+
+
+
+
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Remote Location:',
-    locations:''
-  },
-  mounted() {
-    const api = `http://ziptasticapi.com/1098`
-    // ${this.city}
-    // make ajax request to remote server
-    axios.get(api).then(huge => this.locations=huge.data)
+    styler : {
+      border: "1px solid green"
+    }
   }
-
 })
 
 
