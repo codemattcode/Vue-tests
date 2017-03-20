@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Amy",
+    "id": 1,
+    "color": "bright pink",
+    "title": "is unsure of her position right now",
+    "url": "http://placehold.it/600/92c952",
+    "thumbnailUrl": "http://placehold.it/150/92c952/ffffff"
+  },
+  {
+    "name": "Fred",
+    "id": 2,
+    "color": "red",
+    "title": "is looking for common ground and a solution to an unusual problem",
+    "url": "http://placehold.it/600",
+    "thumbnailUrl": "http://placehold.it/150/333333/ffffff/?text=fred"
+  }
+]

@@ -43,9 +43,11 @@
 Home = { template: `
 <div>
 <h2>This is the Home page</h2>
-<p>{{hello}}</p>
+<p>{{message}}</p>
+<p>hello</p>
 </div>
-` }
+`
+}
 
 About = { template: `
 <div>
@@ -69,8 +71,7 @@ routes
 new Vue({
 el: '#app',
 data: {
-  hello: 'Remote Location:',
-  locations:''
+ message:'what is the message, 247365'
 },
 router
 })
