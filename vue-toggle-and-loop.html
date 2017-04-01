@@ -93,8 +93,8 @@
 
   <hr/>
 
-  <ul v-for="person in persons">
-    <li>{{ person.name }} {{ person.dob }}</li>
+  <ul v-for="(person, index) in persons">
+    <li>Name: {{ person.name }} Age: {{ person.age }} Index: ({{ index }})</li>
   </ul>
 
 </div><!-- /app -->
@@ -117,9 +117,10 @@ var app = new Vue({
   data: {
     show: true,
     persons: [
-      {name: 'Fred', dob: 010183},
-      {name: 'John', dob: 010193},
-      {name: 'Jane', dob: 010103}
+      {name: 'Fred', age: 33},
+      {name: 'John', age: 23},
+      {name: 'Jane', age: 13},
+      {name: 'Lisa', age: 03}
     ]
   }
 })
