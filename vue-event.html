@@ -58,6 +58,13 @@
         padding: 20px 0;
       }
 
+      .red {
+        background-color: #ff3333;
+      }
+      .blue {
+        background-color: rgb(41, 204, 255);
+      }
+
       /* *************** */
       /* wpa boilerplate */
       footer {
@@ -78,8 +85,8 @@
 <!-- app -->
 <div id='app'>
 
-    <comp msg="H3llo"></comp>
-
+    <input type='text' v-on:input="cssClass =$event.target.value"/>
+    <p :class="cssClass">{{ cssClass }}</p>
 
 </div><!-- /app -->
 </div><!-- /tm-grid -->
@@ -96,32 +103,11 @@
 
 
 <script>
-Vue.component('comp', {
-  template: `
-<div>
-  <h1>{{msg}} {{message}}</h1>
-</div>
-  `,
-  props: {
-      msg: {
-        type: String,
-        default: 'Empty'
-    }
-  },
-  data() {
-    return {
-      message: 'World!'
-    }
-  },
-})
-
-
-
-
-
-
 var app = new Vue({
   el: '#app',
+  data: {
+    cssClass: ''
+  }
 })
 
 
