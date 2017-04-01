@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>codeMattCode / Vuejs : Starter File</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        user-select: none;
+      }
+      body {
+        background-color: #eee;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 200%;
+        color: #222;
+        line-height: 1.1;
+        letter-spacing: -.8px;
+        word-spacing: -1px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      h3 {
+        font-size: 1em;
+      }
+      a:link, a:visited {
+        text-decoration: none;
+        color: #ff3333;
+      }
+      li {
+        list-style-type: none;
+      }
+      .tm-grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+      }
+      button, input {
+        padding: 10px 20px;
+        margin: 5px 0;
+        font-size: 1.1em;
+        text-transform: uppercase;
+        border-radius: 6px;
+        background-color: red;
+        border: none;
+        outline: none;
+        color: #eee;
+        transition: ease .2s;
+      }
+      button:hover {
+        /*transform: scale(1.2);*/
+        background-color: #ff3333;
+      }
+      .padder {
+        padding: 20px 0;
+      }
+
+      /* *************** */
+      /* wpa boilerplate */
+      footer {
+        display: flex;
+        justify-content: center;
+      }
+      .callout {
+        position: fixed;
+        bottom: 0;
+        padding: 10px;
+        font-size: .7em;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+<div class='tm-grid'>
+<!-- app -->
+<div id='app'>
+
+    <comp msg="H3llo"></comp>
+
+
+</div><!-- /app -->
+</div><!-- /tm-grid -->
+
+
+<!-- wpa boilerplate -->
+<div id='wpa'>
+  <footer>
+      <div class="callout">Made with <a href="https://vuejs.org">Vue.js</a> by <span><a :href='link'>{{brand}}</a></span></div>
+  </footer>
+</div><!-- wpa -->
+</div><!-- /tm-grid -->
+<script src="https://unpkg.com/vue@2.2.1"></script>
+
+
+<script>
+Vue.component('comp', {
+  template: `
+<div>
+  <h1>{{msg}} {{message}}</h1>
+</div>
+  `,
+  props: {
+      msg: {
+        type: String,
+        default: 'Empty'
+    }
+  },
+  data() {
+    return {
+      message: 'World!'
+    }
+  },
+})
+
+
+
+
+
+
+var app = new Vue({
+  el: '#app',
+})
+
+
+
+
+// WPA boilerplate
+var wPa = new Vue({
+  el: '#wpa',
+  data: {
+    brand: 'codeMattCode',
+    link: 'http://codemattcode.com'
+  }
+})
+</script>
+</body>
+</html>
