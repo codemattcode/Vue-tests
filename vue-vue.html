@@ -78,7 +78,7 @@
 <!-- app -->
 <div id='app'>
 
-    <comp msg="H3llo"></comp>
+    <p>{{ }}</p>
 
 
 </div><!-- /app -->
@@ -96,32 +96,13 @@
 
 
 <script>
-Vue.component('comp', {
-  template: `
-<div>
-  <h1>{{msg}} {{message}}</h1>
-</div>
-  `,
-  props: {
-      msg: {
-        type: String,
-        default: 'Empty'
-    }
-  },
-  data() {
-    return {
-      message: 'World!'
-    }
-  },
-})
-
-
-
-
 
 
 var app = new Vue({
   el: '#app',
+  data: {
+    title: 'title goes here'
+  }
 })
 
 
