@@ -57,6 +57,10 @@
       .padder {
         padding: 20px 0;
       }
+      .user {
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
 
       /* *************** */
       /* wpa boilerplate */
@@ -78,8 +82,10 @@
 <!-- app -->
 <div id='app'>
 
-    <p>{{ }}</p>
-
+    <p>{{ title }}</p>
+    <ul>
+      <li class="user" v-for="user in users">{{user.username}}</li>
+    </ul>
 
 </div><!-- /app -->
 </div><!-- /tm-grid -->
@@ -101,7 +107,11 @@
 var app = new Vue({
   el: '#app',
   data: {
-    title: 'title goes here'
+    users: [
+      {username: 'fred'},
+      {username: 'anna'},
+      {username: 'jeni'}
+    ]
   }
 })
 
