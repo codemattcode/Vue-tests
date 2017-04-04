@@ -86,10 +86,13 @@
 <div id='app'>
 
     <!-- using computed property function 'upper' -->
-    <!-- <p>{{ upper }}</p> -->
+    <p>{{ upper }}</p>
 
     <!-- using global filter -->
     <p>{{title | uppercase }}</p>
+
+    <!-- local filter -->
+    <p>{{title | lowercase}}</p>
 
 </div><!-- /app -->
 </div><!-- /tm-grid -->
@@ -119,12 +122,14 @@ var app = new Vue({
   // using a computed property instead of a filter but does the same thing
   computed: {
     upper: function() {
-      // return this.title.toUpperCase()
+      return this.title.toUpperCase()
     }
   },
   // local filter
   filters: {
-
+    lowercase: function(value) {
+      return value.toLowerCase()
+    }
   }
 })
 
