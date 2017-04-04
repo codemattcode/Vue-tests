@@ -119,7 +119,7 @@ var app = new Vue({
   data: {
     title: 'Hello, World!'
   },
-  // using a computed property instead of a filter but does the same thing
+  // using a computed property instead of a filter is more performative
   computed: {
     upper: function() {
       return this.title.toUpperCase()
