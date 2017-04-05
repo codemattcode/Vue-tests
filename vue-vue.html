@@ -63,6 +63,12 @@
         margin: 10px;
         background-color: #f7f7f7;
       }
+      .user {
+        border: 1px solid #333;
+        padding: 10px;
+        margin: 10px;
+        background-color: #ffff00;
+      }
 
       /* *************** */
       /* wpa boilerplate */
@@ -88,6 +94,10 @@
       <li class="name" v-for="name in names">{{name.username}}</li>
     </ul>
 
+
+      <users></users>
+
+
 </div><!-- /app -->
 </div><!-- /tm-grid -->
 
@@ -103,12 +113,17 @@
 
 
 <script>
-Vue.component('names', {
+Vue.component('users', {
   data: function() {
     return {
-      
+      users: [
+        {username: 'john'},
+        {username: 'paul'},
+        {username: 'george'}
+      ]
     };
-  }
+  },
+  template: '<ul><li class="user" v-for="user in users">{{user.username}}</li></ul>'
 });
 
 var app = new Vue({
