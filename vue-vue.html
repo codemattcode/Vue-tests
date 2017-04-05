@@ -98,6 +98,8 @@
       <users></users>
 
 
+      <songs></songs>
+
 </div><!-- /app -->
 </div><!-- /tm-grid -->
 
@@ -140,7 +142,8 @@ var app = new Vue({
     'songs' : [
       { songName : 'Cold' },
       { songName : 'Frozen' }
-    ]
+    ],
+    template: '<ul><li class="user" v-for="song in songs">{{song.songName}}</li></ul>'
   }
 })
 
