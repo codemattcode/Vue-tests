@@ -139,13 +139,11 @@ var app = new Vue({
     ]
   },
   components: {
-    'songs' : [
-      { songName : 'Cold' },
-      { songName : 'Frozen' }
-    ],
-    template: '<ul><li class="user" v-for="song in songs">{{song.songName}}</li></ul>'
+    'songs' : {
+      title: 'hello'    
+    }
   }
-})
+});
 
 
 
