@@ -89,10 +89,14 @@
 <div class='tm-grid'>
 <!-- app -->
 <div id='app'>
-
       <users></users>
-
 </div><!-- /app -->
+
+<div id='app2'>
+      <my-component></my-component>
+</div><!-- /app2 -->
+
+
 </div><!-- /tm-grid -->
 
 
@@ -126,13 +130,13 @@ var app = new Vue({
 });
 
 
-
 var Names = {
   template: '<div><p>hello</p></div>'
 }
 new Vue({
+  el: '#app2',
   components: {
-    'theNames' : Names
+    'my-component' : Names
   }
 })
 
