@@ -93,7 +93,7 @@
 </div><!-- /app -->
 
 <div id='app2'>
-      <my-component></my-component>
+      <the-names></the-names>
 </div><!-- /app2 -->
 
 
@@ -118,7 +118,7 @@ Vue.component('users', {
         {username: 'john'},
         {username: 'paul'},
         {username: 'george'},
-        {username: 'george'}
+        {username: 'ringo'}
       ]
     };
   },
@@ -131,12 +131,12 @@ var app = new Vue({
 
 
 var Names = {
-  template: '<div><p>hello</p></div>'
-}
+  template: 'users: [{username: 'john'},{username: 'paul'},{username: 'george'}]'
+
 new Vue({
   el: '#app2',
   components: {
-    'my-component' : Names
+    'the-names' : Names
   }
 })
 
