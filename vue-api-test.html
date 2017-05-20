@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue@latest"></script>
+<style>
+    p{
+        background: #111;
+        color: #fff;
+        max-width: 200px;
+        margin-bottom: 1px;
+        padding: 10px;
+        font-family: arial;
+    }
+    p.white{
+        background: white;
+        color: #222;
+        display: inline;
+    }
+</style>
+</head>
+<body>
+    
+<div id="app">
+    
+ 
+  
+  <div class="container">
+    
+    
+    
+        <p class="white" v-for="foto in fotos">{{foto.name}}<img v-bind:style="flag" :src="foto.flag"></p>
+    
+
+      <div class="row col-xs-12"><h1>{{title}}</h1></div>
+      <div class="row">
+          <div class="col-xs-4">
+    <p :style="{color:'tomato'}" v-for="teamCity in teamCities">{{teamCity.Team_name}}</p>
+            </div>
+            
+            <div class="col-xs-4">
+    <p :style="{color:'lightblue'}" v-for="teamCity in teamCities">{{teamCity.Team_preffered_name}}</p>
+            </div>
+
+            <div class="col-xs-4">
+    <p :style="{color:'yellow'}" v-for="teamCity in teamCities">{{teamCity.Team_city}}</p>
+            </div>
+        </div>
+
+  </div>
+
+
+
+</div> 
+
+
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    title: 'American Football Teams',
+    teamCities:'',
+    fotos: '',
+    flag: {
+        height: '50px',
+    }
+  },
+  mounted() {
+    const api = `http://nflarrest.com/api/v1/team/`
+    // make ajax request to remote server
+    axios.get(api).then(huge => this.teamCities=huge.data)
+
+    const apiapi = `https://restcountries.eu/rest/v2/all`
+    axios.get(apiapi).then(ft => this.fotos=ft.data)
+  }
+
+})
+</script>
+</body>
+</html>
