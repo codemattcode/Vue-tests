@@ -37,7 +37,7 @@
         <p class="white" v-for="foto in fotos">{{foto.name}}<img v-bind:style="flag" :src="foto.flag"></p>
     
 
-      <div class="row col-xs-12"><h1>{{title}}</h1></div>
+      <div class="row col-xs-12"><h1>{{title}} <span :style="disclaimerStyle">{{disclaimer}}</span></h1></div>
       <div class="row">
           <div class="col-xs-4">
     <p :style="{color:'tomato'}" v-for="teamCity in teamCities">{{teamCity.Team_name}}</p>
@@ -65,6 +65,11 @@ var app = new Vue({
   el: '#app',
   data: {
     title: 'American Football Teams',
+    disclaimer: 'only works locally (not https)',
+    disclaimerStyle: {
+        fontSize: '12px',
+        color: 'tomato'
+    },
     teamCities:'',
     fotos: '',
     flag: {
